@@ -105,7 +105,7 @@
         <nav>
             <a class="brand" href="#inicio"><span class="brand-mark">G</span> golden bite</a>
             <div class="nav-links"><a href="#menu">Menú</a><a href="#promos">Promociones</a><a href="#nosotros">Nosotros</a></div>
-            <div class="nav-actions"><button class="location">⌖ Medellín</button><button class="cart" aria-label="Ver carrito">🛍 <span>Carrito</span><b id="cart-count">0</b></button></div>
+            <div class="nav-actions"><button class="location">⌖ Medellín</button><button class="cart" aria-label="Ver carrito">🛍 <span>Carrito</span><b id="cart-count">0</b><strong id="cart-total">$0</strong></button></div>
         </nav>
     </header>
     <main>
@@ -114,6 +114,25 @@
         <section class="offer" id="promos"><div class="offer-copy"><div class="eyebrow">Solo por esta semana</div><h2>El combo que te salva el día.</h2><p>Golden clásica + papas doradas + bebida fría. Todo lo que necesitas, en una sola orden.</p><a class="primary" href="#menu">Lo quiero · $34.900</a></div><div class="offer-photo"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1000&q=80" alt="Combo de hamburguesa Golden Bite"></div></section>
     </main>
     <footer id="nosotros"><div class="footer-inner"><a class="brand" href="#inicio"><span class="brand-mark">G</span> golden bite</a><p>Comida honesta. Buen ánimo. Desde 2018.</p><p>© 2024 Golden Bite</p></div></footer>
-    <script>const count = document.getElementById('cart-count'); let items = 0; document.querySelectorAll('.add').forEach(button => button.addEventListener('click', () => { items += 1; count.textContent = items; })); document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => { document.querySelector('.tab.active').classList.remove('active'); tab.classList.add('active'); }));</script>
+    <script>
+        const count = document.getElementById('cart-count');
+        const total = document.getElementById('cart-total');
+        let items = 0;
+        let cartTotal = 0;
+
+        document.querySelectorAll('.add').forEach(button => button.addEventListener('click', () => {
+            const product = button.closest('.product');
+            const price = Number(product.querySelector('.price').textContent.replace(/[^0-9]/g, ''));
+            items += 1;
+            cartTotal += price;
+            count.textContent = items;
+            total.textContent = `$${cartTotal.toLocaleString('es-CO')}`;
+        }));
+
+        document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+            document.querySelector('.tab.active').classList.remove('active');
+            tab.classList.add('active');
+        }));
+    </script>
 </body>
 </html>
