@@ -34,6 +34,8 @@
         .nav-links a:hover { color: var(--red); }
         .nav-actions { align-items: center; display: flex; gap: 12px; }
         .location { background: transparent; color: var(--ink); font-size: 13px; font-weight: 700; }
+        .account { background: transparent; color: var(--ink); font-size: 13px; font-weight: 700; }
+        .account:hover { color: var(--red); }
         .cart { align-items: center; background: var(--yellow); border-radius: 5px; display: flex; gap: 8px; padding: 11px 15px; font-size: 13px; font-weight: 700; }
         .cart b { background: var(--red); border-radius: 50%; color: white; min-width: 20px; padding: 2px 5px; text-align: center; }
         .hero { background: var(--cream); overflow: hidden; }
@@ -80,6 +82,21 @@
         footer { background: var(--ink); color: white; padding: 42px 6vw; }
         .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: auto; max-width: 1180px; }
         footer .brand { color: white; } footer p { color: #aaa49a; font-size: 13px; }
+        .modal { align-items: center; background: rgba(32, 32, 32, .58); display: none; inset: 0; justify-content: center; padding: 20px; position: fixed; z-index: 10; }
+        .modal.open { display: flex; }
+        .modal-card { background: var(--paper); border-radius: 8px; max-width: 430px; padding: 34px; position: relative; width: 100%; }
+        .modal-card h2 { font-size: 34px; margin: 8px 0; }
+        .modal-card p { color: var(--muted); font-size: 14px; margin: 0 0 22px; }
+        .close-modal { background: transparent; color: var(--muted); font-size: 25px; line-height: 1; position: absolute; right: 18px; top: 15px; }
+        .close-modal:hover { color: var(--red); }
+        .auth-switch { display: flex; gap: 20px; margin-bottom: 22px; }
+        .auth-switch button { background: transparent; border-bottom: 2px solid transparent; color: var(--muted); padding: 8px 0; }
+        .auth-switch button.active { border-color: var(--red); color: var(--ink); font-weight: 700; }
+        .auth-form label { display: block; font-size: 13px; font-weight: 700; margin: 14px 0 6px; }
+        .auth-form input { border: 1px solid var(--line); border-radius: 4px; font: inherit; padding: 12px; width: 100%; }
+        .auth-form input:focus { border-color: var(--red); outline: 2px solid rgba(217, 40, 32, .15); }
+        .auth-form .primary { border-radius: 4px; margin-top: 22px; width: 100%; }
+        .auth-message { color: var(--red); display: none; font-size: 13px; margin: 12px 0 0; }
         @media (max-width: 800px) {
             .topbar { padding: 8px 20px; }
             .nav-links, .location { display: none; }
@@ -105,7 +122,7 @@
         <nav>
             <a class="brand" href="#inicio"><span class="brand-mark">G</span> golden bite</a>
             <div class="nav-links"><a href="#menu">Menú</a><a href="#promos">Promociones</a><a href="#nosotros">Nosotros</a></div>
-            <div class="nav-actions"><button class="location">⌖ Medellín</button><button class="cart" aria-label="Ver carrito">🛍 <span>Carrito</span><b id="cart-count">0</b><strong id="cart-total">$0</strong></button></div>
+            <div class="nav-actions"><button class="account" id="account-button">◯ Entrar</button><button class="location">⌖ Medellín</button><button class="cart" aria-label="Ver carrito">🛍 <span>Carrito</span><b id="cart-count">0</b><strong id="cart-total">$0</strong></button></div>
         </nav>
     </header>
     <main>
@@ -114,6 +131,25 @@
         <section class="offer" id="promos"><div class="offer-copy"><div class="eyebrow">Solo por esta semana</div><h2>El combo que te salva el día.</h2><p>Golden clásica + papas doradas + bebida fría. Todo lo que necesitas, en una sola orden.</p><a class="primary" href="#menu">Lo quiero · $34.900</a></div><div class="offer-photo"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1000&q=80" alt="Combo de hamburguesa Golden Bite"></div></section>
     </main>
     <footer id="nosotros"><div class="footer-inner"><a class="brand" href="#inicio"><span class="brand-mark">G</span> golden bite</a><p>Comida honesta. Buen ánimo. Desde 2018.</p><p>© 2024 Golden Bite</p></div></footer>
+    <div class="modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+        <div class="modal-card">
+            <button class="close-modal" id="close-modal" aria-label="Cerrar">×</button>
+            <div class="eyebrow">Tu cuenta Golden</div>
+            <h2 id="auth-title">Bienvenido</h2>
+            <p id="auth-description">Regístrate para guardar tus pedidos y recibir promociones.</p>
+            <div class="auth-switch"><button class="active" id="register-tab" type="button">Registrarme</button><button id="login-tab" type="button">Iniciar sesión</button></div>
+            <form class="auth-form" id="auth-form">
+                <label for="user-name" id="name-label">Nombre</label>
+                <input id="user-name" type="text" autocomplete="name" required placeholder="Tu nombre">
+                <label for="user-email">Correo electrónico</label>
+                <input id="user-email" type="email" autocomplete="email" required placeholder="tu@correo.com">
+                <label for="user-password">Contraseña</label>
+                <input id="user-password" type="password" autocomplete="new-password" minlength="6" required placeholder="Mínimo 6 caracteres">
+                <button class="primary" id="auth-submit" type="submit">Crear mi cuenta</button>
+                <div class="auth-message" id="auth-message" role="status"></div>
+            </form>
+        </div>
+    </div>
     <script>
         const count = document.getElementById('cart-count');
         const total = document.getElementById('cart-total');
@@ -133,6 +169,66 @@
             document.querySelector('.tab.active').classList.remove('active');
             tab.classList.add('active');
         }));
+
+        const accountButton = document.getElementById('account-button');
+        const authModal = document.getElementById('auth-modal');
+        const closeModal = document.getElementById('close-modal');
+        const authForm = document.getElementById('auth-form');
+        const registerTab = document.getElementById('register-tab');
+        const loginTab = document.getElementById('login-tab');
+        const nameField = document.getElementById('user-name');
+        const nameLabel = document.getElementById('name-label');
+        const passwordField = document.getElementById('user-password');
+        const authTitle = document.getElementById('auth-title');
+        const authDescription = document.getElementById('auth-description');
+        const authSubmit = document.getElementById('auth-submit');
+        const authMessage = document.getElementById('auth-message');
+        let authMode = 'register';
+
+        function setAuthMode(mode) {
+            authMode = mode;
+            const isRegister = mode === 'register';
+            registerTab.classList.toggle('active', isRegister);
+            loginTab.classList.toggle('active', !isRegister);
+            nameLabel.style.display = isRegister ? 'block' : 'none';
+            nameField.style.display = isRegister ? 'block' : 'none';
+            nameField.required = isRegister;
+            passwordField.autocomplete = isRegister ? 'new-password' : 'current-password';
+            authTitle.textContent = isRegister ? 'Bienvenido' : 'Qué bueno verte';
+            authDescription.textContent = isRegister ? 'Regístrate para guardar tus pedidos y recibir promociones.' : 'Ingresa a tu cuenta para continuar con tu pedido.';
+            authSubmit.textContent = isRegister ? 'Crear mi cuenta' : 'Iniciar sesión';
+            authMessage.style.display = 'none';
+        }
+
+        accountButton.addEventListener('click', () => {
+            if (localStorage.getItem('goldenBiteUser')) {
+                localStorage.removeItem('goldenBiteUser');
+                accountButton.textContent = '◯ Entrar';
+                return;
+            }
+            authModal.classList.add('open');
+            nameField.focus();
+        });
+        closeModal.addEventListener('click', () => authModal.classList.remove('open'));
+        authModal.addEventListener('click', event => { if (event.target === authModal) authModal.classList.remove('open'); });
+        registerTab.addEventListener('click', () => setAuthMode('register'));
+        loginTab.addEventListener('click', () => setAuthMode('login'));
+        authForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const savedUser = JSON.parse(localStorage.getItem('goldenBiteUser') || 'null');
+            const user = { name: nameField.value.trim(), email: document.getElementById('user-email').value.trim(), password: passwordField.value };
+            if (authMode === 'register') {
+                localStorage.setItem('goldenBiteUser', JSON.stringify(user));
+                accountButton.textContent = `◯ ${user.name}`;
+                authModal.classList.remove('open');
+            } else if (savedUser && savedUser.email === user.email && savedUser.password === user.password) {
+                accountButton.textContent = `◯ ${savedUser.name}`;
+                authModal.classList.remove('open');
+            } else {
+                authMessage.textContent = 'Correo o contraseña incorrectos.';
+                authMessage.style.display = 'block';
+            }
+        });
     </script>
 </body>
 </html>
