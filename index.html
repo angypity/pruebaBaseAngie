@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Bite | Sabor que alegra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #d92820;
+            --red-dark: #b51e18;
+            --yellow: #ffc928;
+            --ink: #202020;
+            --cream: #fff8ea;
+            --paper: #fffdf8;
+            --muted: #756f67;
+            --line: #eadfcd;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--ink); background: var(--paper); font-family: "DM Sans", sans-serif; }
+        a { color: inherit; text-decoration: none; }
+        button { border: 0; cursor: pointer; font: inherit; }
+        .topbar { background: var(--ink); color: white; font-size: 12px; letter-spacing: .06em; padding: 9px 6vw; display: flex; justify-content: space-between; }
+        .topbar span:last-child { color: var(--yellow); }
+        header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+        nav { align-items: center; display: flex; justify-content: space-between; margin: auto; max-width: 1240px; padding: 18px 28px; }
+        .brand { align-items: center; display: flex; gap: 10px; font: 700 25px "Space Grotesk", sans-serif; letter-spacing: -.06em; }
+        .brand-mark { align-items: center; background: var(--red); border-radius: 50%; color: var(--yellow); display: flex; font: 700 25px "Space Grotesk", sans-serif; height: 42px; justify-content: center; transform: rotate(-8deg); width: 42px; }
+        .nav-links { display: flex; gap: 30px; font-size: 14px; font-weight: 700; }
+        .nav-links a:hover { color: var(--red); }
+        .nav-actions { align-items: center; display: flex; gap: 12px; }
+        .location { background: transparent; color: var(--ink); font-size: 13px; font-weight: 700; }
+        .cart { align-items: center; background: var(--yellow); border-radius: 5px; display: flex; gap: 8px; padding: 11px 15px; font-size: 13px; font-weight: 700; }
+        .cart b { background: var(--red); border-radius: 50%; color: white; min-width: 20px; padding: 2px 5px; text-align: center; }
+        .hero { background: var(--cream); overflow: hidden; }
+        .hero-inner { align-items: center; display: grid; grid-template-columns: .85fr 1.15fr; margin: auto; max-width: 1240px; min-height: 535px; padding: 54px 28px 66px; }
+        .eyebrow { color: var(--red); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+        h1, h2, h3 { font-family: "Space Grotesk", sans-serif; margin: 0; letter-spacing: -.055em; }
+        h1 { font-size: clamp(50px, 6.2vw, 86px); line-height: .92; max-width: 570px; }
+        h1 em { color: var(--red); font-style: normal; }
+        .hero-copy p { color: var(--muted); font-size: 17px; line-height: 1.55; margin: 26px 0 30px; max-width: 410px; }
+        .primary { background: var(--red); border-radius: 5px; color: white; display: inline-block; font-weight: 700; padding: 15px 24px; transition: background .2s, transform .2s; }
+        .primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+        .hero-image { min-height: 390px; position: relative; }
+        .hero-image img { border-radius: 50% 45% 48% 50%; box-shadow: 22px 22px 0 var(--yellow); height: 390px; object-fit: cover; position: absolute; right: 5%; top: 7px; width: min(100%, 520px); }
+        .burst { background: var(--yellow); border-radius: 50%; bottom: 15px; color: var(--ink); font: 700 17px "Space Grotesk", sans-serif; height: 107px; padding-top: 34px; position: absolute; right: 1%; text-align: center; transform: rotate(9deg); width: 107px; }
+        .burst small { display: block; font: 700 10px "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+        .menu { margin: auto; max-width: 1240px; padding: 76px 28px 90px; }
+        .section-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 32px; }
+        h2 { font-size: clamp(36px, 4vw, 54px); }
+        .section-head p { color: var(--muted); margin: 0 0 5px; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 28px; overflow-x: auto; padding-bottom: 5px; }
+        .tab { background: white; border: 1px solid var(--line); border-radius: 100px; color: var(--muted); padding: 10px 18px; white-space: nowrap; }
+        .tab.active, .tab:hover { background: var(--ink); border-color: var(--ink); color: white; }
+        .products { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
+        .product { background: white; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+        .product:hover { box-shadow: 0 14px 28px rgba(52, 35, 16, .1); transform: translateY(-4px); }
+        .product-image { background: var(--cream); height: 210px; overflow: hidden; }
+        .product-image img { height: 100%; object-fit: cover; transition: transform .3s; width: 100%; }
+        .product:hover img { transform: scale(1.05); }
+        .product-info { padding: 18px; }
+        .product-info h3 { font-size: 19px; letter-spacing: -.03em; }
+        .product-info p { color: var(--muted); font-size: 13px; line-height: 1.45; min-height: 39px; }
+        .product-bottom { align-items: center; display: flex; justify-content: space-between; }
+        .price { font: 700 18px "Space Grotesk", sans-serif; }
+        .add { background: var(--yellow); border-radius: 4px; font-size: 20px; height: 35px; width: 35px; }
+        .add:hover { background: var(--red); color: white; }
+        .offer { background: var(--red); color: white; display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden; }
+        .offer-copy { padding: 52px clamp(28px, 7vw, 100px); }
+        .offer-copy .eyebrow { color: var(--yellow); }
+        .offer h2 { color: white; margin: 13px 0 12px; }
+        .offer p { color: #ffd8d1; line-height: 1.5; max-width: 460px; }
+        .offer .primary { background: var(--yellow); color: var(--ink); margin-top: 10px; }
+        .offer-photo { min-height: 285px; }
+        .offer-photo img { height: 100%; object-fit: cover; width: 100%; }
+        footer { background: var(--ink); color: white; padding: 42px 6vw; }
+        .footer-inner { align-items: center; display: flex; justify-content: space-between; margin: auto; max-width: 1180px; }
+        footer .brand { color: white; } footer p { color: #aaa49a; font-size: 13px; }
+        @media (max-width: 800px) {
+            .topbar { padding: 8px 20px; }
+            .nav-links, .location { display: none; }
+            nav { padding: 14px 20px; }
+            .hero-inner { grid-template-columns: 1fr; padding: 48px 20px 30px; }
+            .hero-image { min-height: 290px; margin-top: 30px; }
+            .hero-image img { height: 280px; right: 6%; width: 84%; }
+            .burst { bottom: 0; right: 0; transform: scale(.82) rotate(9deg); }
+            .menu { padding: 58px 20px 65px; }
+            .section-head { align-items: start; flex-direction: column; gap: 10px; }
+            .products { grid-template-columns: repeat(2, 1fr); }
+            .product-image { height: 155px; }
+            .offer { grid-template-columns: 1fr; }
+            .offer-photo { min-height: 220px; }
+            .footer-inner { align-items: start; flex-direction: column; gap: 12px; }
+        }
+        @media (max-width: 430px) { .products { gap: 10px; } .product-info { padding: 12px; } .product-info h3 { font-size: 16px; } }
+    </style>
+</head>
+<body>
+    <div class="topbar"><span>RECOGIDA O DELIVERY, COMO TE GUSTE</span><span>Abierto hoy · 11:00 — 23:00</span></div>
+    <header>
+        <nav>
+            <a class="brand" href="#inicio"><span class="brand-mark">G</span> golden bite</a>
+            <div class="nav-links"><a href="#menu">Menú</a><a href="#promos">Promociones</a><a href="#nosotros">Nosotros</a></div>
+            <div class="nav-actions"><button class="location">⌖ Medellín</button><button class="cart" aria-label="Ver carrito">🛍 <span>Carrito</span><b id="cart-count">0</b></button></div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" id="inicio"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">Hecho para disfrutar</div><h1>Hoy se come <em>bien.</em></h1><p>Hamburguesas jugosas, papas doradas y momentos que saben mejor cuando se comparten.</p><a class="primary" href="#menu">Pedir ahora <span>→</span></a></div><div class="hero-image"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85" alt="Hamburguesa con queso y papas fritas"><div class="burst">100%<small>antojable</small></div></div></div></section>
+        <section class="menu" id="menu"><div class="section-head"><div><div class="eyebrow">Elige tu favorito</div><h2>Menú para repetir</h2></div><p>Lo bueno empieza con un bocado.</p></div><div class="tabs"><button class="tab active">Más pedidos</button><button class="tab">Hamburguesas</button><button class="tab">Combos</button><button class="tab">Acompañantes</button><button class="tab">Bebidas</button></div><div class="products"><article class="product"><div class="product-image"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" alt="Golden clásica"></div><div class="product-info"><h3>Golden clásica</h3><p>Carne a la parrilla, cheddar, lechuga y salsa de la casa.</p><div class="product-bottom"><span class="price">$24.900</span><button class="add" aria-label="Agregar Golden clásica">+</button></div></div></article><article class="product"><div class="product-image"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" alt="Papas doradas"></div><div class="product-info"><h3>Papas doradas</h3><p>Crujientes, sazonadas y listas para compartir.</p><div class="product-bottom"><span class="price">$9.900</span><button class="add" aria-label="Agregar Papas doradas">+</button></div></div></article><article class="product"><div class="product-image"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=600&q=80" alt="Doble bite"></div><div class="product-info"><h3>Doble bite</h3><p>Doble carne, doble queso y el doble de felicidad.</p><div class="product-bottom"><span class="price">$32.900</span><button class="add" aria-label="Agregar Doble bite">+</button></div></div></article><article class="product"><div class="product-image"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=600&q=80" alt="Limonada fresca"></div><div class="product-info"><h3>Limonada fresca</h3><p>Limón natural, hielo y un toque de hierbabuena.</p><div class="product-bottom"><span class="price">$7.900</span><button class="add" aria-label="Agregar Limonada fresca">+</button></div></div></article></div></section>
+        <section class="offer" id="promos"><div class="offer-copy"><div class="eyebrow">Solo por esta semana</div><h2>El combo que te salva el día.</h2><p>Golden clásica + papas doradas + bebida fría. Todo lo que necesitas, en una sola orden.</p><a class="primary" href="#menu">Lo quiero · $34.900</a></div><div class="offer-photo"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1000&q=80" alt="Combo de hamburguesa Golden Bite"></div></section>
+    </main>
+    <footer id="nosotros"><div class="footer-inner"><a class="brand" href="#inicio"><span class="brand-mark">G</span> golden bite</a><p>Comida honesta. Buen ánimo. Desde 2018.</p><p>© 2024 Golden Bite</p></div></footer>
+    <script>const count = document.getElementById('cart-count'); let items = 0; document.querySelectorAll('.add').forEach(button => button.addEventListener('click', () => { items += 1; count.textContent = items; })); document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => { document.querySelector('.tab.active').classList.remove('active'); tab.classList.add('active'); }));</script>
+</body>
+</html>
