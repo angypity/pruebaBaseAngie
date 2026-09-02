@@ -1208,7 +1208,7 @@
 
         cargarImagen(
             "papasImage",
-            "Papas Doradas(1).webp"
+            "Papas Doradas.webp"
         );
 
 
@@ -1521,8 +1521,11 @@
                     .classList
                     .add("open");
 
-
-                nameField.focus();
+                if (authMode === "register") {
+                    nameField.focus();
+                } else {
+                    document.getElementById("user-email").focus();
+                }
 
             }
         );
@@ -1629,9 +1632,22 @@
 
                 if (result.error) {
 
+                    const errorMessages = {
+                        "email rate limit exceeded":
+                            "Demasiados intentos de registro. Espera unos minutos o usa otro correo; Supabase limita los correos de confirmación.",
+                        "User already registered":
+                            "Este correo ya está registrado. Ve a Iniciar sesión.",
+                        "Invalid login credentials":
+                            "Correo o contraseña incorrectos.",
+                        "Email not confirmed":
+                            "Confirma tu correo electrónico antes de iniciar sesión."
+                    };
+
                     authMessage.textContent =
+                        errorMessages[result.error.message] ||
                         result.error.message;
 
+                    authMessage.style.color = "var(--red)";
                     authMessage.style.display = "block";
 
                     return;
