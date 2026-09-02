@@ -1,15 +1,19 @@
+<```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>melissa | Sabor que alegra</title>
+
+    <title>Golden Bite | Sabor que alegra</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
+
         :root {
             --red: #d92820;
             --red-dark: #b51e18;
@@ -47,6 +51,8 @@
             font: inherit;
         }
 
+        /* BARRA SUPERIOR */
+
         .topbar {
             background: var(--ink);
             color: white;
@@ -60,6 +66,8 @@
         .topbar span:last-child {
             color: var(--yellow);
         }
+
+        /* NAVEGACIÓN */
 
         header {
             background: var(--paper);
@@ -116,13 +124,7 @@
             gap: 12px;
         }
 
-        .location {
-            background: transparent;
-            color: var(--ink);
-            font-size: 13px;
-            font-weight: 700;
-        }
-
+        .location,
         .account {
             background: transparent;
             color: var(--ink);
@@ -153,6 +155,8 @@
             padding: 2px 5px;
             text-align: center;
         }
+
+        /* HERO */
 
         .hero {
             background: var(--cream);
@@ -256,6 +260,8 @@
             letter-spacing: .1em;
             text-transform: uppercase;
         }
+
+        /* MENÚ */
 
         .menu {
             margin: auto;
@@ -378,6 +384,8 @@
             color: white;
         }
 
+        /* PROMOCIÓN */
+
         .offer {
             background: var(--red);
             color: white;
@@ -421,6 +429,8 @@
             width: 100%;
         }
 
+        /* FOOTER */
+
         footer {
             background: var(--ink);
             color: white;
@@ -443,6 +453,8 @@
             color: #aaa49a;
             font-size: 13px;
         }
+
+        /* MODAL */
 
         .modal {
             align-items: center;
@@ -545,7 +557,10 @@
             margin: 12px 0 0;
         }
 
+        /* RESPONSIVE */
+
         @media (max-width: 800px) {
+
             .topbar {
                 padding: 8px 20px;
             }
@@ -615,6 +630,7 @@
         }
 
         @media (max-width: 430px) {
+
             .products {
                 gap: 10px;
             }
@@ -627,6 +643,7 @@
                 font-size: 16px;
             }
         }
+
     </style>
 </head>
 
@@ -637,10 +654,14 @@
         <span>Abierto hoy · 11:00 — 23:00</span>
     </div>
 
+
     <header>
+
         <nav>
+
             <a class="brand" href="#inicio">
-                <span class="brand-mark">G</span> golden bite
+                <span class="brand-mark">G</span>
+                golden bite
             </a>
 
             <div class="nav-links">
@@ -650,8 +671,14 @@
             </div>
 
             <div class="nav-actions">
-                <button class="account" id="account-button">◯ Entrar</button>
-                <button class="location">⌖ Medellín</button>
+
+                <button class="account" id="account-button">
+                    ◯ Entrar
+                </button>
+
+                <button class="location">
+                    ⌖ Medellín
+                </button>
 
                 <button class="cart" aria-label="Ver carrito">
                     🛍
@@ -659,18 +686,27 @@
                     <b id="cart-count">0</b>
                     <strong id="cart-total">$0</strong>
                 </button>
+
             </div>
+
         </nav>
+
     </header>
+
 
     <main>
 
         <!-- HERO -->
+
         <section class="hero" id="inicio">
+
             <div class="hero-inner">
 
                 <div class="hero-copy">
-                    <div class="eyebrow">Hecho para disfrutar</div>
+
+                    <div class="eyebrow">
+                        Hecho para disfrutar
+                    </div>
 
                     <h1>
                         Hoy se come <em>bien.</em>
@@ -683,153 +719,258 @@
                     <a class="primary" href="#menu">
                         Pedir ahora <span>→</span>
                     </a>
+
                 </div>
 
+
                 <div class="hero-image">
-                    <img src="Golden Bite.webp" alt="Hamburguesa con queso y papas fritas">
+
+                    <img
+                        id="heroImage"
+                        alt="Hamburguesa Golden Bite"
+                    >
 
                     <div class="burst">
                         100%
                         <small>antojable</small>
                     </div>
+
                 </div>
 
             </div>
+
         </section>
 
 
         <!-- MENÚ -->
+
         <section class="menu" id="menu">
 
             <div class="section-head">
+
                 <div>
-                    <div class="eyebrow">Elige tu favorito</div>
-                    <h2>Menú para repetir</h2>
+                    <div class="eyebrow">
+                        Elige tu favorito
+                    </div>
+
+                    <h2>
+                        Menú para repetir
+                    </h2>
                 </div>
 
-                <p>Lo bueno empieza con un bocado.</p>
+                <p>
+                    Lo bueno empieza con un bocado.
+                </p>
+
             </div>
 
 
             <div class="tabs">
-                <button class="tab active">Más pedidos</button>
-                <button class="tab">Hamburguesas</button>
-                <button class="tab">Combos</button>
-                <button class="tab">Acompañantes</button>
-                <button class="tab">Bebidas</button>
+
+                <button class="tab active">
+                    Más pedidos
+                </button>
+
+                <button class="tab">
+                    Hamburguesas
+                </button>
+
+                <button class="tab">
+                    Combos
+                </button>
+
+                <button class="tab">
+                    Acompañantes
+                </button>
+
+                <button class="tab">
+                    Bebidas
+                </button>
+
             </div>
 
 
             <div class="products">
 
+
                 <!-- GOLDEN CLÁSICA -->
+
                 <article class="product">
 
                     <div class="product-image">
-                        <img src="Golden Bite.webp" alt="Golden clásica">
+
+                        <img
+                            id="goldenImage"
+                            alt="Golden clásica"
+                        >
+
                     </div>
 
                     <div class="product-info">
-                        <h3>Golden clásica</h3>
+
+                        <h3>
+                            Golden clásica
+                        </h3>
 
                         <p>
                             Carne a la parrilla, cheddar, lechuga y salsa de la casa.
                         </p>
 
                         <div class="product-bottom">
-                            <span class="price">$24.900</span>
 
-                            <button class="add" aria-label="Agregar Golden clásica">
+                            <span class="price">
+                                $24.900
+                            </span>
+
+                            <button
+                                class="add"
+                                aria-label="Agregar Golden clásica"
+                            >
                                 +
                             </button>
+
                         </div>
+
                     </div>
 
                 </article>
 
 
-                <!-- PAPAS DORADAS -->
+                <!-- PAPAS -->
+
                 <article class="product">
 
                     <div class="product-image">
-                        <img src="Papas Doradas(1).webp" alt="Papas doradas">
+
+                        <img
+                            id="papasImage"
+                            alt="Papas doradas"
+                        >
+
                     </div>
 
                     <div class="product-info">
-                        <h3>Papas doradas</h3>
+
+                        <h3>
+                            Papas doradas
+                        </h3>
 
                         <p>
                             Crujientes, sazonadas y listas para compartir.
                         </p>
 
                         <div class="product-bottom">
-                            <span class="price">$9.900</span>
 
-                            <button class="add" aria-label="Agregar Papas doradas">
+                            <span class="price">
+                                $9.900
+                            </span>
+
+                            <button
+                                class="add"
+                                aria-label="Agregar Papas doradas"
+                            >
                                 +
                             </button>
+
                         </div>
+
                     </div>
 
                 </article>
 
 
                 <!-- DOBLE BITE -->
+
                 <article class="product">
 
                     <div class="product-image">
-                        <img src="Doble Bite.jpg" alt="Doble bite">
+
+                        <img
+                            id="dobleImage"
+                            alt="Doble bite"
+                        >
+
                     </div>
 
                     <div class="product-info">
-                        <h3>Doble bite</h3>
+
+                        <h3>
+                            Doble bite
+                        </h3>
 
                         <p>
                             Doble carne, doble queso y el doble de felicidad.
                         </p>
 
                         <div class="product-bottom">
-                            <span class="price">$32.900</span>
 
-                            <button class="add" aria-label="Agregar Doble bite">
+                            <span class="price">
+                                $32.900
+                            </span>
+
+                            <button
+                                class="add"
+                                aria-label="Agregar Doble bite"
+                            >
                                 +
                             </button>
+
                         </div>
+
                     </div>
 
                 </article>
 
 
                 <!-- LIMONADA -->
+
                 <article class="product">
 
                     <div class="product-image">
-                        <img src="Limonada Fresca.webp" alt="Limonada fresca">
+
+                        <img
+                            id="limonadaImage"
+                            alt="Limonada fresca"
+                        >
+
                     </div>
 
                     <div class="product-info">
-                        <h3>Limonada fresca</h3>
+
+                        <h3>
+                            Limonada fresca
+                        </h3>
 
                         <p>
                             Limón natural, hielo y un toque de hierbabuena.
                         </p>
 
                         <div class="product-bottom">
-                            <span class="price">$7.900</span>
 
-                            <button class="add" aria-label="Agregar Limonada fresca">
+                            <span class="price">
+                                $7.900
+                            </span>
+
+                            <button
+                                class="add"
+                                aria-label="Agregar Limonada fresca"
+                            >
                                 +
                             </button>
+
                         </div>
+
                     </div>
 
                 </article>
 
             </div>
+
         </section>
 
 
         <!-- PROMOCIÓN -->
+
         <section class="offer" id="promos">
 
             <div class="offer-copy">
@@ -853,8 +994,14 @@
 
             </div>
 
+
             <div class="offer-photo">
-                <img src="Golden Bite.webp" alt="Combo de hamburguesa Golden Bite">
+
+                <img
+                    id="offerImage"
+                    alt="Combo de hamburguesa Golden Bite"
+                >
+
             </div>
 
         </section>
@@ -863,6 +1010,7 @@
 
 
     <!-- FOOTER -->
+
     <footer id="nosotros">
 
         <div class="footer-inner">
@@ -885,12 +1033,23 @@
     </footer>
 
 
-    <!-- MODAL DE CUENTA -->
-    <div class="modal" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <!-- MODAL -->
+
+    <div
+        class="modal"
+        id="auth-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="auth-title"
+    >
 
         <div class="modal-card">
 
-            <button class="close-modal" id="close-modal" aria-label="Cerrar">
+            <button
+                class="close-modal"
+                id="close-modal"
+                aria-label="Cerrar"
+            >
                 ×
             </button>
 
@@ -909,20 +1068,33 @@
 
             <div class="auth-switch">
 
-                <button class="active" id="register-tab" type="button">
+                <button
+                    class="active"
+                    id="register-tab"
+                    type="button"
+                >
                     Registrarme
                 </button>
 
-                <button id="login-tab" type="button">
+                <button
+                    id="login-tab"
+                    type="button"
+                >
                     Iniciar sesión
                 </button>
 
             </div>
 
 
-            <form class="auth-form" id="auth-form">
+            <form
+                class="auth-form"
+                id="auth-form"
+            >
 
-                <label for="user-name" id="name-label">
+                <label
+                    for="user-name"
+                    id="name-label"
+                >
                     Nombre
                 </label>
 
@@ -962,11 +1134,19 @@
                 >
 
 
-                <button class="primary" id="auth-submit" type="submit">
+                <button
+                    class="primary"
+                    id="auth-submit"
+                    type="submit"
+                >
                     Crear mi cuenta
                 </button>
 
-                <div class="auth-message" id="auth-message" role="status"></div>
+                <div
+                    class="auth-message"
+                    id="auth-message"
+                    role="status"
+                ></div>
 
             </form>
 
@@ -975,241 +1155,515 @@
     </div>
 
 
-    <script>
+    <script type="module">
 
-        const count = document.getElementById('cart-count');
-        const total = document.getElementById('cart-total');
+        import {
+            createClient
+        } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+        const supabaseUrl =
+            "https://ykkpstkjedkymlsnlezs.supabase.co";
+
+        const supabaseKey =
+            "sb_publishable_5Sd6wUf76CM2BSNllmqeyA_jYACdqHV";
+
+        const supabase = createClient(
+            supabaseUrl,
+            supabaseKey
+        );
+
+        /*
+         * =====================================================
+         * IMÁGENES
+         * =====================================================
+         *
+         * encodeURIComponent() convierte automáticamente:
+         *
+         * "Papas Doradas(1).webp"
+         *
+         * en una ruta segura para el navegador.
+         */
+
+        function cargarImagen(id, nombreArchivo) {
+
+            const imagen = document.getElementById(id);
+
+            imagen.src =
+                encodeURI(nombreArchivo);
+
+        }
+
+
+        cargarImagen(
+            "heroImage",
+            "Golden Bite.webp"
+        );
+
+
+        cargarImagen(
+            "goldenImage",
+            "Golden Bite.webp"
+        );
+
+
+        cargarImagen(
+            "papasImage",
+            "Papas Doradas(1).webp"
+        );
+
+
+        cargarImagen(
+            "dobleImage",
+            "Doble Bite.jpg"
+        );
+
+
+        cargarImagen(
+            "limonadaImage",
+            "Limonada Fresca.webp"
+        );
+
+
+        cargarImagen(
+            "offerImage",
+            "Golden Bite.webp"
+        );
+
+
+        /*
+         * =====================================================
+         * CARRITO
+         * =====================================================
+         */
+
+        const count =
+            document.getElementById("cart-count");
+
+        const total =
+            document.getElementById("cart-total");
 
         let items = 0;
         let cartTotal = 0;
 
 
-        // AGREGAR PRODUCTOS AL CARRITO
-        document.querySelectorAll('.add').forEach(button => {
+        document
+            .querySelectorAll(".add")
+            .forEach(button => {
 
-            button.addEventListener('click', () => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                const product = button.closest('.product');
+                        const product =
+                            button.closest(".product");
 
-                const price = Number(
-                    product
-                        .querySelector('.price')
-                        .textContent
-                        .replace(/[^0-9]/g, '')
+                        const price =
+                            Number(
+                                product
+                                    .querySelector(".price")
+                                    .textContent
+                                    .replace(
+                                        /[^0-9]/g,
+                                        ""
+                                    )
+                            );
+
+
+                        items += 1;
+
+                        cartTotal += price;
+
+
+                        count.textContent =
+                            items;
+
+
+                        total.textContent =
+                            "$" +
+                            cartTotal.toLocaleString(
+                                "es-CO"
+                            );
+
+                    }
                 );
 
-                items += 1;
-                cartTotal += price;
+            });
 
-                count.textContent = items;
 
-                total.textContent =
-                    `$${cartTotal.toLocaleString('es-CO')}`;
+        /*
+         * =====================================================
+         * PESTAÑAS
+         * =====================================================
+         */
+
+        document
+            .querySelectorAll(".tab")
+            .forEach(tab => {
+
+                tab.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelector(".tab.active")
+                            .classList
+                            .remove("active");
+
+                        tab.classList.add("active");
+
+                    }
+                );
 
             });
 
-        });
+
+        /*
+         * =====================================================
+         * CUENTA
+         * =====================================================
+         */
+
+        const accountButton =
+            document.getElementById(
+                "account-button"
+            );
+
+        const authModal =
+            document.getElementById(
+                "auth-modal"
+            );
+
+        const closeModal =
+            document.getElementById(
+                "close-modal"
+            );
+
+        const authForm =
+            document.getElementById(
+                "auth-form"
+            );
+
+        const registerTab =
+            document.getElementById(
+                "register-tab"
+            );
+
+        const loginTab =
+            document.getElementById(
+                "login-tab"
+            );
+
+        const nameField =
+            document.getElementById(
+                "user-name"
+            );
+
+        const nameLabel =
+            document.getElementById(
+                "name-label"
+            );
+
+        const passwordField =
+            document.getElementById(
+                "user-password"
+            );
+
+        const authTitle =
+            document.getElementById(
+                "auth-title"
+            );
+
+        const authDescription =
+            document.getElementById(
+                "auth-description"
+            );
+
+        const authSubmit =
+            document.getElementById(
+                "auth-submit"
+            );
+
+        const authMessage =
+            document.getElementById(
+                "auth-message"
+            );
+
+        let authMode = "register";
 
 
-        // PESTAÑAS DEL MENÚ
-        document.querySelectorAll('.tab').forEach(tab => {
-
-            tab.addEventListener('click', () => {
-
-                document
-                    .querySelector('.tab.active')
-                    .classList
-                    .remove('active');
-
-                tab.classList.add('active');
-
-            });
-
-        });
-
-
-        // CUENTA
-        const accountButton = document.getElementById('account-button');
-        const authModal = document.getElementById('auth-modal');
-        const closeModal = document.getElementById('close-modal');
-        const authForm = document.getElementById('auth-form');
-
-        const registerTab = document.getElementById('register-tab');
-        const loginTab = document.getElementById('login-tab');
-
-        const nameField = document.getElementById('user-name');
-        const nameLabel = document.getElementById('name-label');
-
-        const passwordField = document.getElementById('user-password');
-
-        const authTitle = document.getElementById('auth-title');
-        const authDescription = document.getElementById('auth-description');
-        const authSubmit = document.getElementById('auth-submit');
-        const authMessage = document.getElementById('auth-message');
-
-        let authMode = 'register';
-
-
-        // CAMBIAR ENTRE REGISTRO E INICIO DE SESIÓN
         function setAuthMode(mode) {
 
             authMode = mode;
 
-            const isRegister = mode === 'register';
+            const isRegister =
+                mode === "register";
 
-            registerTab.classList.toggle('active', isRegister);
-            loginTab.classList.toggle('active', !isRegister);
+
+            registerTab
+                .classList
+                .toggle(
+                    "active",
+                    isRegister
+                );
+
+
+            loginTab
+                .classList
+                .toggle(
+                    "active",
+                    !isRegister
+                );
+
 
             nameLabel.style.display =
-                isRegister ? 'block' : 'none';
+                isRegister
+                    ? "block"
+                    : "none";
+
 
             nameField.style.display =
-                isRegister ? 'block' : 'none';
+                isRegister
+                    ? "block"
+                    : "none";
 
-            nameField.required = isRegister;
+
+            nameField.required =
+                isRegister;
+
 
             passwordField.autocomplete =
                 isRegister
-                    ? 'new-password'
-                    : 'current-password';
+                    ? "new-password"
+                    : "current-password";
+
 
             authTitle.textContent =
                 isRegister
-                    ? 'Bienvenido'
-                    : 'Qué bueno verte';
+                    ? "Bienvenido"
+                    : "Qué bueno verte";
+
 
             authDescription.textContent =
                 isRegister
-                    ? 'Regístrate para guardar tus pedidos y recibir promociones.'
-                    : 'Ingresa a tu cuenta para continuar con tu pedido.';
+                    ? "Regístrate para guardar tus pedidos y recibir promociones."
+                    : "Ingresa a tu cuenta para continuar con tu pedido.";
+
 
             authSubmit.textContent =
                 isRegister
-                    ? 'Crear mi cuenta'
-                    : 'Iniciar sesión';
+                    ? "Crear mi cuenta"
+                    : "Iniciar sesión";
 
-            authMessage.style.display = 'none';
+
+            authMessage.style.display =
+                "none";
 
         }
 
 
-        // ABRIR CUENTA
-        accountButton.addEventListener('click', () => {
+        function updateAccountButton(user) {
 
-            if (localStorage.getItem('goldenBiteUser')) {
+            accountButton.textContent =
+                user
+                    ? `◯ ${user.user_metadata?.name || user.email}`
+                    : "◯ Entrar";
 
-                localStorage.removeItem('goldenBiteUser');
-
-                accountButton.textContent = '◯ Entrar';
-
-                return;
-            }
-
-            authModal.classList.add('open');
-
-            nameField.focus();
-
-        });
+        }
 
 
-        // CERRAR MODAL
-        closeModal.addEventListener('click', () => {
+        async function loadSession() {
 
-            authModal.classList.remove('open');
+            const {
+                data: {
+                    session
+                }
+            } = await supabase.auth.getSession();
 
-        });
+            updateAccountButton(
+                session?.user
+            );
 
-
-        authModal.addEventListener('click', event => {
-
-            if (event.target === authModal) {
-                authModal.classList.remove('open');
-            }
-
-        });
+        }
 
 
-        // BOTONES REGISTRO / LOGIN
-        registerTab.addEventListener('click', () => {
-            setAuthMode('register');
-        });
+        supabase.auth.onAuthStateChange(
+            (_event, session) => {
 
-        loginTab.addEventListener('click', () => {
-            setAuthMode('login');
-        });
-
-
-        // FORMULARIO
-        authForm.addEventListener('submit', event => {
-
-            event.preventDefault();
-
-            const savedUser =
-                JSON.parse(
-                    localStorage.getItem('goldenBiteUser') || 'null'
+                updateAccountButton(
+                    session?.user
                 );
 
+            }
+        );
 
-            const user = {
-
-                name: nameField.value.trim(),
-
-                email:
-                    document
-                        .getElementById('user-email')
-                        .value
-                        .trim(),
-
-                password:
-                    passwordField.value
-
-            };
+        loadSession();
 
 
-            // REGISTRO
-            if (authMode === 'register') {
+        accountButton.addEventListener(
+            "click",
+            async () => {
 
-                localStorage.setItem(
-                    'goldenBiteUser',
-                    JSON.stringify(user)
+                const {
+                    data: {
+                        session
+                    }
+                } = await supabase.auth.getSession();
+
+                if (session) {
+
+                    await supabase.auth.signOut();
+
+                    return;
+                }
+
+
+                authModal
+                    .classList
+                    .add("open");
+
+
+                nameField.focus();
+
+            }
+        );
+
+
+        closeModal.addEventListener(
+            "click",
+            () => {
+
+                authModal
+                    .classList
+                    .remove("open");
+
+            }
+        );
+
+
+        authModal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === authModal
+                ) {
+
+                    authModal
+                        .classList
+                        .remove("open");
+
+                }
+
+            }
+        );
+
+
+        registerTab.addEventListener(
+            "click",
+            () => {
+
+                setAuthMode(
+                    "register"
                 );
 
-                accountButton.textContent =
-                    `◯ ${user.name}`;
+            }
+        );
 
-                authModal.classList.remove('open');
+
+        loginTab.addEventListener(
+            "click",
+            () => {
+
+                setAuthMode(
+                    "login"
+                );
 
             }
+        );
 
 
-            // INICIAR SESIÓN
-            else if (
-                savedUser &&
-                savedUser.email === user.email &&
-                savedUser.password === user.password
-            ) {
+        authForm.addEventListener(
+            "submit",
+            async event => {
 
-                accountButton.textContent =
-                    `◯ ${savedUser.name}`;
+                event.preventDefault();
 
-                authModal.classList.remove('open');
+                authSubmit.disabled = true;
+                authMessage.style.display = "none";
+
+                const email = document
+                    .getElementById("user-email")
+                    .value
+                    .trim();
+
+                const password = passwordField.value;
+
+                let result;
+
+                try {
+
+                    result = authMode === "register"
+                        ? await supabase.auth.signUp({
+                            email,
+                            password,
+                            options: {
+                                data: {
+                                    name: nameField.value.trim()
+                                }
+                            }
+                        })
+                        : await supabase.auth.signInWithPassword({
+                            email,
+                            password
+                        });
+
+                } catch (error) {
+
+                    result = {
+                        error
+                    };
+
+                }
+
+                authSubmit.disabled = false;
+
+                if (result.error) {
+
+                    authMessage.textContent =
+                        result.error.message;
+
+                    authMessage.style.display = "block";
+
+                    return;
+                }
+
+                if (
+                    authMode === "register" &&
+                    !result.data.session
+                ) {
+
+                    authMessage.textContent =
+                        "Cuenta creada. Revisa tu correo para confirmarla y luego inicia sesión.";
+
+                    authMessage.style.color = "#26734d";
+                    authMessage.style.display = "block";
+                    authForm.reset();
+
+                    return;
+                }
+
+                authMessage.style.color = "var(--red)";
+                authModal
+                    .classList
+                    .remove("open");
+
+                authForm.reset();
 
             }
-
-
-            // ERROR
-            else {
-
-                authMessage.textContent =
-                    'Correo o contraseña incorrectos.';
-
-                authMessage.style.display = 'block';
-
-            }
-
-        });
+        );
 
     </script>
 
 </body>
 </html>
+```
