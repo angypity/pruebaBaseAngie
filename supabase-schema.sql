@@ -3,10 +3,15 @@
 
 create table if not exists public.profiles (
     id uuid primary key references auth.users(id) on delete cascade,
+    username text not null default '',
     name text not null default '',
     created_at timestamptz not null default now(),
     updated_at timestamptz not null default now()
 );
+
+create unique index if not exists profiles_username_key
+    on public.profiles (lower(username))
+    where username <> '';
 
 alter table public.profiles enable row level security;
 
@@ -38,9 +43,10 @@ language plpgsql
 security definer set search_path = public
 as $$
 begin
-    insert into public.profiles (id, name)
+    insert into public.profiles (id, username, name)
     values (
         new.id,
+        coalesce(new.raw_user_meta_data ->> 'username', ''),
         coalesce(new.raw_user_meta_data ->> 'name', '')
     )
     on conflict (id) do update
